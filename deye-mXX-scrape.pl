@@ -7,7 +7,9 @@
 # The functionality of this script may break any time when the inverter firmware gets updated 
 # and the webpage uses different code.
 #
-# 
+# Hacked together by Niels Ott <niels@drni.de>
+# Use at own risk. License is GPL v3.
+# This program may blow up your cat.
 #
 
 use strict;
