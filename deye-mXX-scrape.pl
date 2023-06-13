@@ -7,7 +7,7 @@
 # The functionality of this script may break any time when the inverter firmware gets updated 
 # and the webpage uses different code.
 #
-# 
+# Written by Niels Ott <niels@drni.de>, released under GNU GPL3 – no warranties, you know that stuff. Use at own risk. May blow up your cat.
 #
 
 use strict;
