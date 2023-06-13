@@ -45,6 +45,6 @@ if ( $sPage =~ /var webdata_total_e = \"([\d\.]+)\";/ ) {
 }
 
 # show result
-print("Current Power Output:\t $powerOutput W\n");
-print("Yield Today:\t $yieldToday kWh\n");
-print("Total Yield:\t $yieldToday kWh\n");
+print("Current Power Output:\t$powerOutput W\n");
+print("Yield Today:\t$yieldToday kWh\n");
+print("Total Yield:\t$yieldToday kWh\n");
