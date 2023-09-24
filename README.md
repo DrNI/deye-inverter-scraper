@@ -9,7 +9,7 @@ Assuming 192.168.1.123 is your Deye inverter, you can obtain data on the command
 
 Now let's say you want to store the current power production into a Mosquitto MQTT broker. Unroll your Unix magician skills and use the following magic on the command line:
 
-`while [ true ] ; do CURRENT=$(./deye-mXX-scrape.pl 192.168.1.123 |grep "Current" | awk -F "\t" '{print($2)}') && mosquitto_pub -h 192.168.1.124 -m "$CURRENT" -t "mywizardcastle/power/deye/current" ; sleep 120 ; done`
+`while [ true ] ; do CURRENT=$(./deye-mXX-scrape.pl 192.168.1.123 |grep "Current" | grep '[0-9]' | awk -F "\t" '{print($2)}') && mosquitto_pub -h 192.168.1.124 -m "$CURRENT" -t "mywizardcastle/power/deye/current" ; sleep 120 ; done`
 
 Assuming 192.168.1.124 to be your Mosquitto MQTT Server/Broker: this will obtain the current power output from your inverter and message it to the broker. Then it will wait 2 minutes and repeat. 
 
