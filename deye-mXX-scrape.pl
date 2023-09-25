@@ -16,8 +16,13 @@ use strict;
 use utf8;
 use HTTP::Tiny;
 
+my $json=0;
 my $inverterHostName =$ARGV[0];
 
+if ( "$inverterHostName" eq "-j" ) {
+    $json = 1;
+    $inverterHostName =$ARGV[1];
+} 
 
 # this is the page with the interesting stuff, include the default auth 
 # credentials
@@ -25,7 +30,7 @@ my $URL = "http://admin:admin\@$inverterHostName/status.html";
 
 # perform request and check for success
 my $response = HTTP::Tiny->new->get($URL);
-die "Failed to read $URL!\n" unless $response->{success};
+die "Failed to read $URL!" unless $response->{success};
 
 # store webpage content
 my $sPage = $response->{content};
@@ -46,7 +51,30 @@ if ( $sPage =~ /var webdata_total_e = \"([\d\.]+)\";/ ) {
     $yieldTotal = $1;
 }
 
+if ( $powerOutput =~ m/--/ ) {
+    die("Could not read proper data from $URL!");
+}
+
 # show result
+if ( $json ) {
+print("{
+\"current_power_output\" : {
+    \"value\" : \"$powerOutput\",
+    \"unit\" : \"W\"
+  },
+\"yield_today\" : {
+    \"value\" : \"$yieldToday\",
+    \"unit\" : \"kWh\"
+  },
+\"total_yield\" : {
+    \"value\" : \"$yieldTotal\",
+    \"unit\" : \"kWh\"
+  }
+}
+");
+} else {
 print("Current Power Output:\t$powerOutput W\n");
 print("Yield Today:\t$yieldToday kWh\n");
 print("Total Yield:\t$yieldTotal kWh\n");
+}
+
