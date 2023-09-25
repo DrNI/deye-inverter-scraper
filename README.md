@@ -7,11 +7,11 @@ Assuming 192.168.1.123 is your Deye inverter, you can obtain data on the command
 
 `deye-mXX-scrape.pl 192.168.1.123`
 
-Now let's say you want to store the current power production into a Mosquitto MQTT broker. Unroll your Unix magician skills and use the following magic on the command line:
+The command line switch `-j` will give you JSON formatted output.
 
-`while [ true ] ; do  CURRENT=$(deye-mXX-scrape.pl 192.168.1.123) && CURRENT=$(echo "$CURRENT" | grep "Current" |grep '[0-9]' | awk -F "\t" '{print($2)}')  && mosquitto_pub -h 192.168.1.124 -m "$CURRENT" -t "mywizardcastle/power/deye/current" ; sleep 120 ; done`
+## Feeding Mosquitto MQTT
 
-Assuming 192.168.1.124 to be your Mosquitto MQTT Server/Broker: this will obtain the current power output from your inverter and message it to the broker. Then it will wait 2 minutes and repeat. 
+Use `deye2mqtt.sh`to feed the data obtained with the Perl hack into your Mosquitto MQTT broker. Make sure to adjust the script to reflect your hostnames/IPs of the inverter and the broker.
 
 ## Drawbacks
 
