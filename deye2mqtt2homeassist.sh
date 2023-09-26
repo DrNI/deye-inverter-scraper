@@ -12,10 +12,6 @@
 # This program may blow up your cat.
 #
 
-
-
-#!/bin/bash
-
 IDENTIFIER="hostname_of_my_deye_inverter"
 TOPIC="mywizardcastle/power/deye/currentg"
 BROKER="hostname_or_ip_of_my_mqtt_broker" # for most people: localhost
