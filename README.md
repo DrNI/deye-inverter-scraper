@@ -11,7 +11,11 @@ The command line switch `-j` will give you JSON formatted output.
 
 ## Feeding Mosquitto MQTT
 
-Use `deye2mqtt.sh`to feed the data obtained with the Perl hack into your Mosquitto MQTT broker. Make sure to adjust the script to reflect your hostnames/IPs of the inverter and the broker.
+Use `deye2mqtt.sh` to feed the data obtained with the Perl hack into your Mosquitto MQTT broker. Make sure to adjust the script to reflect your hostnames/IPs of the inverter and the broker.
+
+## Home Assistant
+
+Use `deye2mqtt2homeassist.sh` to announce the data submitted to the MQTT broker using `deye2mqtt.sh` to Home Assistant.
 
 ## Drawbacks
 
