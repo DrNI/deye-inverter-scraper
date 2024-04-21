@@ -16,6 +16,7 @@ IDENTIFIER="hostname_of_my_deye_inverter"
 TOPIC="mywizardcastle/power/deye/currentg"
 BROKER="hostname_or_ip_of_my_mqtt_broker" # for most people: localhost
 
+
 device="\"device\":{
    \"identifiers\":\"${IDENTIFIER}\",
    \"name\":\"${IDENTIFIER} Deye Inverter\",
@@ -29,6 +30,7 @@ JSON="
   \"name\": \"Current Power Output\",
   \"unit_of_measurement\":\"W\",
   \"device_class\" : \"power\",
+  \"state_class\" : \"measurement\",
   \"unique_id\" : \"deye_inverter_${IDENTIFIER}_cpo\",
   \"schema\": \"state\",
   \"state_topic\": \"${TOPIC}\",
@@ -46,6 +48,7 @@ JSON="
   \"name\": \"Yield Today\",
   \"unit_of_measurement\":\"kWh\",
   \"device_class\" : \"energy\",
+  \"state_class\" : \"total\",
   \"unique_id\" : \"deye_inverter_${IDENTIFIER}_yt\",
   \"schema\": \"state\",
   \"state_topic\": \"${TOPIC}\",
@@ -64,6 +67,7 @@ JSON="
   \"name\": \"Total Yield\",
   \"unit_of_measurement\":\"kWh\",
   \"device_class\" : \"energy\",
+  \"state_class\" : \"total_increasing\",
   \"unique_id\" : \"deye_inverter_${IDENTIFIER}_ty\",
   \"schema\": \"state\",
   \"state_topic\": \"${TOPIC}\",
