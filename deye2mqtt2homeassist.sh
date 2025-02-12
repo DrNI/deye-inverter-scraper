@@ -13,7 +13,7 @@
 #
 
 IDENTIFIER="hostname_of_my_deye_inverter"
-TOPIC="mywizardcastle/power/deye/currentg"
+TOPIC="mywizardcastle/power/deye/current"
 BROKER="hostname_or_ip_of_my_mqtt_broker" # for most people: localhost
 
 
