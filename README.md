@@ -9,6 +9,8 @@ Assuming 192.168.1.123 is your Deye inverter, you can obtain data on the command
 
 The command line switch `-j` will give you JSON formatted output.
 
+This assumes that your *login credentials* on the Deye inverter are: `admin`, `admin`. If that is not the case, change the code accordingly. 
+
 ## Feeding Mosquitto MQTT
 
 Use `deye2mqtt.sh` to feed the data obtained with the Perl hack into your Mosquitto MQTT broker. Make sure to adjust the script to reflect your hostnames/IPs of the inverter and the broker.
